@@ -3,7 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = ["http://localhost", "http://localhost:8080", "http://localhost:3000"]
+origins = ["http://localhost", "http://localhost:8080", "http://localhost:3000", 
+           "http://gbus-front.s3-website.ap-northeast-2.amazonaws.com"
+           ]
 
 app.add_middleware(
     CORSMiddleware,
