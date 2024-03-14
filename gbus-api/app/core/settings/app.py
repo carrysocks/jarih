@@ -17,6 +17,8 @@ class AppSettings(BaseSettings):
     VERSION: str = "0.0.1"
     DESCRIPTION: str = "GBUS API Open API Docs"
     WRITE_DB_URL: str = os.environ["DB_URL"]
+    SECRET_KEY: str = os.environ["SECRET_KEY"]
+    ALGORITHM: str = os.environ["ALGORITHM"]
 
     @property
     def fastapi_kwargs(self) -> Dict[str, Any]:
@@ -27,4 +29,6 @@ class AppSettings(BaseSettings):
             "version": self.VERSION,
             "description": self.DESCRIPTION,
             "openapi_url": None,
+            "secret_key":self.SECRET_KEY,
+            "algorithm":self.ALGORITHM
         }
