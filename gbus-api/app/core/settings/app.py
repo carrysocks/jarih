@@ -19,6 +19,7 @@ class AppSettings(BaseSettings):
     WRITE_DB_URL: str = os.environ["DB_URL"]
     SECRET_KEY: str = os.environ["SECRET_KEY"]
     ALGORITHM: str = os.environ["ALGORITHM"]
+    LAMBDA_ENDPOINT: str = os.environ["LAMBDA_ENDPOINT"]
 
     @property
     def fastapi_kwargs(self) -> Dict[str, Any]:
@@ -30,5 +31,6 @@ class AppSettings(BaseSettings):
             "description": self.DESCRIPTION,
             "openapi_url": None,
             "secret_key":self.SECRET_KEY,
-            "algorithm":self.ALGORITHM
+            "algorithm":self.ALGORITHM,
+            "lambda_endpoint":self.LAMBDA_ENDPOINT
         }
